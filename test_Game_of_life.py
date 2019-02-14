@@ -13,3 +13,8 @@ def test_initializing_predefined_live_cells():
     expected_value= [[0,1,0],[0,1,0],[0,1,0]]
     assert Game_of_life.initial(matrix)== matrix
     
+def test_for_cell_alive():
+    matrix=[[0,1,0],[0,1,0],[0,1,0]]
+    assert Game_of_life.alive(matrix[0][1])==1
+    assert Game_of_life.alive(matrix[1][1])==1
+    assert Game_of_life.alive(matrix[2][1])==1
