@@ -8,6 +8,18 @@ def matrix(number):
 
     return matrix
     
-if __name__=='__main__':
-    matrix(4)
+def initial(matrix):
+    """Creats live cells in the pre-defined nxn  matrix
+"""
+    matrix[0][1]=1
+    matrix[1][1]=1
+    matrix[2][1]=1
     
+    return matrix
+
+
+
+
+if __name__=='__main__':
+   matrix= matrix(4)
+   initial(matrix)
