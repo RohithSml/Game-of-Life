@@ -17,9 +17,12 @@ def initial(matrix):
     
     return matrix
 
+def alive(cell):
+    """Checks if the cell is alive;
+Returns boolean"""
+    if cell==1:
+        return True
+    else:
+        return False
 
-
-
-if __name__=='__main__':
-   matrix= matrix(4)
-   initial(matrix)
+    
