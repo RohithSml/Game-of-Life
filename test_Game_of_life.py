@@ -27,3 +27,12 @@ def test_for_killing_cell():
     assert matrix == [[0,0,0],[0,0,1],[0,0,1]]
     Game_of_life.die(matrix, 0, 2)
     assert matrix == [[0,0,0],[0,0,1],[0,0,1]]
+
+def test_for_giving_life_to_cell():
+    matrix=[[0,0,1],[0,0,1],[0,0,1]]
+    Game_of_life.live(matrix, 0, 1)
+    assert matrix == [[0,1,1],[0,0,1],[0,0,1]]
+    Game_of_life.live(matrix, 0, 0)
+    assert matrix == [[1,1,1],[0,0,1],[0,0,1]]
+    Game_of_life.live(matrix, 1, 2)
+    assert matrix == [[1,1,1],[0,0,1],[0,0,1]]
