@@ -59,9 +59,30 @@ def alive_neighbour(first_position, row, col):
                 alive_mem=alive_mem+1
     return alive_mem
 
-    
-if __name__=='__main__':
-    matrix= matrix(3)
-    first_position=initial(matrix)
-    next_position=initial(matrix)
-    
+
+
+
+def apply_rules(first_position,size):
+    """   1. Any live cell with fewer than two live neighbors dies, as if by underpopulation.
+    2. Any live cell with two or three live neighbors lives on to the next generation.
+    3.Any live cell with more than three live neighbors dies, as if by overpopulation.
+    4.Any dead cell with exactly three live neighbors becomes a live cell, as if by reproduction."""
+
+    next_position=matrix(size)
+
+    for i in range (size):
+        for j in range (size):
+            if alive(first_position[i][j]) and alive_neighbour(first_position,i,j) in [2,3]:
+                live(next_position,i,j)
+
+            if not alive(first_position[i][j]) and alive_neighbour(first_position,i,j) == 3:
+                live(next_position,i,j)
+
+            if alive(first_position[i][j]) and alive_neighbour(first_position,i,j) < 2:
+                die(next_position,i,j)
+
+            if alive(first_position[i][j]) and alive_neighbour(first_position,i,j) > 3:
+                die(next_position,i,j)
+
+    return next_position
+                
