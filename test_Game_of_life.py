@@ -36,3 +36,12 @@ def test_for_giving_life_to_cell():
     assert matrix == [[1,1,1],[0,0,1],[0,0,1]]
     Game_of_life.live(matrix, 1, 2)
     assert matrix == [[1,1,1],[0,0,1],[0,0,1]]
+
+def test_for_returning_number_of_alive_neighbours():
+    matrix=[[0,1,0],
+            [0,1,0],
+            [0,1,0]]
+    assert Game_of_life.alive_neighbour(matrix, 1, 0) == 3
+    assert Game_of_life.alive_neighbour(matrix, 0, 0) == 2
+    assert Game_of_life.alive_neighbour(matrix, 2, 1) == 1
+    assert Game_of_life.alive_neighbour(matrix, 2, 2) == 2
