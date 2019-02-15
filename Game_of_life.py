@@ -85,4 +85,27 @@ def apply_rules(first_position,size):
                 die(next_position,i,j)
 
     return next_position
-                
+
+def display(count,size,first_position):
+    print(f"Gen {count}\n")
+    for i in range(size):
+        for j in range(size):
+            print("{:4}".format(first_position[i][j]),end=' ')
+        print("\n")
+
+def main():
+    """Runs Conway's Game of Life in an infinte loop
+ """
+    size=3
+    first_position=initial(matrix(size))
+    count =0
+    while True:
+        display(count,size,first_position)
+        time.sleep(1)
+        first_position=apply_rules(first_position,size)
+        count+=1
+
+
+if __name__=='__main__':
+    import time
+    main()
