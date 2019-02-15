@@ -2,8 +2,14 @@
 import Game_of_life
 
 
-#1.Creating a nxn matrix
-
+"""1.Creating a nxn matrix
+2.Initilize predefined live cells
+3.Check is cell is alive
+4.Kill the cell
+5.Give life to cell
+6.Return number of neighbours
+7.Apply rules
+"""
 def test_3x3_matrix():
     expected_value=[[0,0,0],[0,0,0],[0,0,0]]
     assert Game_of_life.matrix(3) == expected_value
@@ -62,4 +68,8 @@ def test_for_applying_rules():
             [0,1,0,0],
             [0,0,0,0]]
     assert Game_of_life.apply_rules(matrix,4)==[[0,0,0,0],[1,1,1,0],[0,0,0,0],[0,0,0,0]]
-    
+
+    matrix=[[0,1,0],
+            [1,1,1],
+            [0,1,0]]
+    assert Game_of_life.apply_rules(matrix,3)==[[1,1,1],[1,0,1],[1,1,1]]

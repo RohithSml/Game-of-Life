@@ -59,9 +59,6 @@ def alive_neighbour(first_position, row, col):
                 alive_mem=alive_mem+1
     return alive_mem
 
-
-
-
 def apply_rules(first_position,size):
     """   1. Any live cell with fewer than two live neighbors dies, as if by underpopulation.
     2. Any live cell with two or three live neighbors lives on to the next generation.
@@ -104,7 +101,6 @@ def main():
         time.sleep(1)
         first_position=apply_rules(first_position,size)
         count+=1
-
 
 if __name__=='__main__':
     import time
