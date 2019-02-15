@@ -7,7 +7,7 @@ def matrix(number):
         matrix.append(row)
 
     return matrix
-    
+
 def initial(matrix):
     """Creats live cells in the pre-defined nxn  matrix
 """
@@ -24,14 +24,16 @@ Returns boolean"""
         return True
     else:
         return False
-
+    
 def die(next_position,row,col):
     """Kills the cell i.e funtion changes cell's value to 0 and updates matrix
 """
     next_position[row][col]=0
 
-
-
+def live(next_position,row,col):
+    """Creates life in the cell i.e function changes cell's value to 1 and updates matrix"""
+    
+    next_position[row][col]=1
 
 
 if __name__=='__main__':
