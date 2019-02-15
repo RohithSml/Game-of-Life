@@ -18,3 +18,12 @@ def test_for_cell_alive():
     assert Game_of_life.alive(matrix[0][1])==1
     assert Game_of_life.alive(matrix[1][1])==1
     assert Game_of_life.alive(matrix[2][1])==1
+
+def test_for_killing_cell():
+    matrix=[[1,1,0],[0,0,1],[0,0,1]]
+    Game_of_life.die(matrix, 0, 1)
+    assert matrix == [[1,0,0],[0,0,1],[0,0,1]]
+    Game_of_life.die(matrix, 0, 0)
+    assert matrix == [[0,0,0],[0,0,1],[0,0,1]]
+    Game_of_life.die(matrix, 0, 2)
+    assert matrix == [[0,0,0],[0,0,1],[0,0,1]]
