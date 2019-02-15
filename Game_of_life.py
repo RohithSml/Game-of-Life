@@ -25,4 +25,16 @@ Returns boolean"""
     else:
         return False
 
-    
+def die(next_position,row,col):
+    """Kills the cell i.e funtion changes cell's value to 0 and updates matrix
+"""
+    next_position[row][col]=0
+
+
+
+
+
+if __name__=='__main__':
+    matrix= matrix(4)
+    first_position=initial(matrix)
+    next_position=initial(matrix)
