@@ -1,5 +1,6 @@
 #Testing file for Game_of_life.py
 import Game_of_life
+import pytest
 
 
 """1.Creating a nxn matrix
@@ -73,3 +74,7 @@ def test_for_applying_rules():
             [1,1,1],
             [0,1,0]]
     assert Game_of_life.apply_rules(matrix,3)==[[1,1,1],[1,0,1],[1,1,1]]
+
+def test_main_exception():
+    with pytest.raises(Exception):
+        Game_of_life.main()
