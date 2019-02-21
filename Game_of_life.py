@@ -9,6 +9,7 @@ def matrix(number):
 
 def initial(matrix):
     """Creats live cells in the pre-defined nxn  matrix"""
+    # Try to make your matrix  immutable
     matrix[0][1]=1
     matrix[1][1]=1
     matrix[2][1]=1
@@ -17,27 +18,23 @@ def initial(matrix):
 
 def alive(cell):
     """Checks if the cell is alive, Returns boolean"""
-    if cell==1:
-        return True
-    else:
-        return False
+    return cell == 1 # The if is unnecessary.
+    
+def die(matrix, row, col):
+    """Kills the cell i.e funtion changes cell's value to 0 and updates
+matrix""" # Use a variable name which shows how the parameters are independent of who's calling this function
+    matrix[row][col]=0
 
     
-def die(next_position, row, col):
-    """Kills the cell i.e funtion changes cell's value to 0 and updates matrix"""
-    next_position[row][col]=0
-
-    
-def live(next_position,row,col):
+def live(matrix, row, col):
     """Creates life in the cell i.e function changes cell's value to 1 and updates matrix"""
-    next_position[row][col]=1
+    matrix[row][col]=1
 
-    
 def alive_neighbour(first_position, row, col):
     """Returns the number of neighbouring cells that are alive"""
-    size_limit=len(first_position)-1
+    size_limit = len(first_position)-1
     alive_mem = 0
-    for row_probability in [-1, 0, 1]:
+    for row_probability in [-1, 0, 1]: # Loop variables are usually small
 
         for col_probability in [-1, 0, 1]:
             next_row = row + row_probability
@@ -77,7 +74,7 @@ def apply_rules(first_position,size):
 
 def display(count,size,first_position):
     """Displays the Matrix in a formatted fashion """
-    print(f"Gen {count}\n")
+    print("Gen {}\n".format(count))
     for i in range(size):
         for j in range(size):
             print("{:4}".format(first_position[i][j]),end=' ')
